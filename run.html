@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Run Tracker</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <link rel="stylesheet" href="run.css">
+</head>
+
+<body>
+
+  <!-- MAP -->
+  <div id="map"></div>
+
+  <!-- PANEL -->
+  <div class="panel">
+
+    <div class="stat">
+      <p>Distance</p>
+      <h2 id="distance">0 km</h2>
+    </div>
+
+    <div class="stat">
+      <p>Time</p>
+      <h2 id="time">0:00</h2>
+    </div>
+
+    <div class="btns">
+      <button onclick="startRun()" class="start">START</button>
+      <button onclick="stopRun()" class="stop">STOP</button>
+    </div>
+
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script src="run.js"></script>
+
+</body>
+</html>
