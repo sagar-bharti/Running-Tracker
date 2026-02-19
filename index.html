@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <div class="navbar">
+
+  <h2 class="logo">RunZone</h2>
+  <div class="profile-wrapper" id="profilewrapper" style="display:none;">
+  <img src="https://i.pravatar.cc/40" class="profile-icon" onclick="toggleMenu()">
+    <div class="profile-menu" id="profileMenu">
+    <p id="userName">User</p>
+    <button onclick="goProfile()">Profile</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+</div>
+  </div>
+
 
 <div class="container">
 
@@ -35,8 +48,8 @@
   </section>
 
   <section class="auth">
-    <button class="login">Login</button>
-    <button class="signup">Sign Up</button>
+    <button type="button" class="login" onclick="window.location.href='login.html'">Login</button>
+    <button type="button" class="signup" onclick="window.location.href='signup.html'">Sign Up</button>
   </section>
 
   <section class="runners">

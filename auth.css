@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* MAIN CARD */
+.auth-container {
+  width: 90%;
+  max-width: 380px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* TITLE */
+.auth-container h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* INPUTS */
+.auth-container input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.auth-container input:focus {
+  border-color: #ff7a00;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255,122,0,0.1);
+}
+
+/* BUTTON */
+.auth-container button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg,#ff7a00,#ff3d00);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-container button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255,90,0,0.3);
+}
+
+/* LINK TEXT */
+.auth-container p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-container a {
+  color: #ff5a00;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 25px;
+  }
+}
