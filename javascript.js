@@ -7,19 +7,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   const profileWrapper = document.getElementById("profilewrapper");
-  const loginBtn = document.querySelector(".auth");
+  const authsection = document.querySelector(".auth");
 
   if (isLoggedIn === "true") {
     profileWrapper.style.display = "block";
-    loginBtn.style.display = "none";
+    authsection.style.display = "none";
+
+     const user = JSON.parse(localStorage.getItem("runnerUser"));
+  document.getElementById("userName").innerText = user.name;
   } else {
     profileWrapper.style.display = "none";
+    authsection.style.display = "block";
   }
 
 });
 
 function logout() {
+
   localStorage.removeItem("isLoggedIn");
-  location.reload();
+
+  alert("Logged Out 👋");
+
+  window.location.href = "index.html";
 }
 
+function toggleMenu() {
+  document.getElementById("profileMenu").classList.toggle("show-menu");
+}

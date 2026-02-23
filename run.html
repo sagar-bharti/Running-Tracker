@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Run Tracker</title>
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet"
     href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  
+  <!-- Leaflet Draw for zone capture -->
+  <link rel="stylesheet" href="https://unpkg.com/@leaflet/draw/dist/leaflet.draw.css"/>
 
   <link rel="stylesheet" href="run.css">
 </head>
@@ -16,6 +19,15 @@
 
   <!-- MAP -->
   <div id="map"></div>
+
+  <!-- NOTIFICATION CONTAINER -->
+  <div id="notificationContainer" style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2500;
+    max-width: 400px;
+  "></div>
 
   <!-- PANEL -->
   <div class="panel">
@@ -30,16 +42,55 @@
       <h2 id="time">0:00</h2>
     </div>
 
+    <div class="stat">
+      <p>Speed</p>
+      <h2 id="speed">0 km/h</h2>
+    </div>
+
     <div class="btns">
       <button onclick="startRun()" class="start">START</button>
       <button onclick="stopRun()" class="stop">STOP</button>
+      <button onclick="toggleLeaderboard()" class="leaderboard">🏆 BOARD</button>
     </div>
 
   </div>
 
+  <!-- ZONE DETAILS POPUP -->
+  <div id="zonePopup" class="zone-popup" style="display:none;">
+    <div class="popup-content">
+      <button class="close-popup" onclick="closeZonePopup()">✕</button>
+      <h3 id="popupOwner">👑 King: Loading...</h3>
+      <p id="popupDistance">Distance: -- km</p>
+      <p id="popupDate">Captured on: --</p>
+      <button id="attackBtn" class="attack-btn">⚔️ ATTACK ZONE</button>
+    </div>
+  </div>
+
+  <!-- LEADERBOARD MODAL -->
+  <div id="leaderboardModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeLeaderboard()">✕</button>
+      <div class="board-tabs">
+        <button onclick="switchBoard('global')" class="tab-btn active">🌍 Global</button>
+        <button onclick="switchBoard('city')" class="tab-btn">🗺️ City</button>
+        <button onclick="switchBoard('zones')" class="tab-btn">🧭 My Zones</button>
+      </div>
+      <div id="leaderboardContent" class="leaderboard-list">Loading...</div>
+    </div>
+  </div>
+
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/@leaflet/draw/dist/leaflet.draw.js"></script>
 
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+
+  <script src="firebase-config.js"></script>
+  <script src="notifications.js"></script>
+  <script src="advanced-features.js"></script>
   <script src="run.js"></script>
 
 </body>
