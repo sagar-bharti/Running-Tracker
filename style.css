@@ -380,6 +380,31 @@ footer {
   }
 }
 
+.auth {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.auth {
+  display: flex;      /* sabse important */
+  gap: 12px;          /* buttons ke beech space */
+}
+
+.login {
+  flex: 1;            /* equal width */
+  padding: 14px 0;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 100%;
+}
+.signup {
+  flex: 1;            /* equal width */
+  padding: 14px 0;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 100%;
+}
 /* MOBILE (480px and below) */
 @media (max-width: 480px) {
   html {
