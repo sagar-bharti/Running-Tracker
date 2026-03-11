@@ -123,9 +123,9 @@ class LeaderboardManager {
         distance,
         duration,
         routePolyline,
-        date: new Date(),
-        pace: (duration / distance).toFixed(2), // min/km
-        coordinates: routePolyline.map(point => ({ lat: point[0], lng: point[1] }))
+        createdAt: new Date(),
+        pace: distance > 0 ? (duration / distance).toFixed(2) : 0,
+  coordinates: routePolyline.map(point => ({ lat: point[0], lng: point[1] }))
       };
       
       await db.collection("runs").add(runData);
@@ -169,8 +169,8 @@ class LeaderboardManager {
   async getCityLeaderboard(city, limit = 10) {
     try {
       const snapshot = await db.collection("users")
-        .where("city", "==", city)
-        .orderBy("totalDistance", "desc")
+       .where("userName", "==", userName) 
+       .orderBy("createdAt", "desc")
         .limit(limit)
         .get();
       return snapshot.docs.map(doc => doc.data());
